@@ -16,7 +16,6 @@
 
 package com.alibaba.nacos.plugin.auth.impl.constant;
 
-import com.alibaba.nacos.plugin.auth.constant.Constants;
 import com.alibaba.nacos.plugin.auth.impl.utils.PasswordEncoderUtil;
 
 /**
@@ -42,13 +41,7 @@ public class AuthConstants {
     
     public static final String PARAM_PASSWORD = "password";
     
-    /**
-     * Console resource name prefix.
-     *
-     * @deprecated Use {@link Constants.Resource#CONSOLE_RESOURCE_NAME_PREFIX} instead.
-     */
-    @Deprecated
-    public static final String CONSOLE_RESOURCE_NAME_PREFIX = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX;
+    public static final String CONSOLE_RESOURCE_NAME_PREFIX = "console/";
     
     public static final String UPDATE_PASSWORD_ENTRY_POINT = CONSOLE_RESOURCE_NAME_PREFIX + "user/password";
     

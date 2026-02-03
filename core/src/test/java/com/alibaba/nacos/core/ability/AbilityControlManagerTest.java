@@ -43,7 +43,7 @@ class AbilityControlManagerTest {
     @Test
     void testCurrentNodeAbility() {
         Set<String> keySet = serverAbilityControlManager.getCurrentNodeAbilities(AbilityMode.SERVER).keySet();
-        // disable all
+        // diable all
         keySet.forEach(key -> serverAbilityControlManager.disableCurrentNodeAbility(AbilityKey.getEnum(AbilityMode.SERVER, key)));
         // get all
         keySet.forEach(key -> {

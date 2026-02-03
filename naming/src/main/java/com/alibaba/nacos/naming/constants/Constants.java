@@ -16,6 +16,8 @@
 
 package com.alibaba.nacos.naming.constants;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Naming module code starts with 20001.
  *
@@ -62,7 +64,17 @@ public final class Constants {
      * default : true.
      */
     public static final String EXPIRE_INSTANCE = "nacos.naming.expireInstance";
-
+    
+    /**
+     * UDP max retry times.
+     */
+    public static final int UDP_MAX_RETRY_TIMES = 1;
+    
+    /**
+     * The Nanoseconds for receive UDP ack time out.
+     */
+    public static final long ACK_TIMEOUT_NANOS = TimeUnit.SECONDS.toNanos(10L);
+    
     /**
      * The custom instance id key.
      */

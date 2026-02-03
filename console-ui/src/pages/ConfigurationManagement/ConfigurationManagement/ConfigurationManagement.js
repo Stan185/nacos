@@ -922,7 +922,7 @@ class ConfigurationManagement extends React.Component {
                         self.setState({
                           dataSource: [],
                           total: 0,
-                          currentPage: 1,
+                          currentPage: 0,
                         });
                       },
                       complete() {
@@ -961,7 +961,7 @@ class ConfigurationManagement extends React.Component {
         self.setState({
           dataSource: [],
           total: 0,
-          currentPage: 1,
+          currentPage: 0,
         });
       },
       complete() {

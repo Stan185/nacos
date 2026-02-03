@@ -24,7 +24,7 @@ package com.alibaba.nacos.core.exception;
 public enum ErrorCode {
     
     /**
-     * unknown error.
+     * unknow error.
      */
     UnKnowError(40001),
     

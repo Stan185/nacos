@@ -47,7 +47,7 @@ public final class NacosMeterRegistryCenter {
     
     public static final String TOPN_SERVICE_CHANGE_REGISTRY = "TOPN_SERVICE_CHANGE_REGISTRY";
     
-    // control plugin registers.
+    // control plugin registeres.
     public static final String CONTROL_DENIED_REGISTRY = "CONTROL_DENIED_REGISTRY";
 
     public static final String LOCK_STABLE_REGISTRY = "LOCK_STABLE_REGISTRY";

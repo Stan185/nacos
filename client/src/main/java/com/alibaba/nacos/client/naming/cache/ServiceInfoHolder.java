@@ -100,8 +100,7 @@ public class ServiceInfoHolder implements Closeable {
     
     public ServiceInfo getServiceInfo(final String serviceName, final String groupName) {
         String key = NamingUtils.getGroupedName(serviceName, groupName);
-        ServiceInfo serviceInfo = serviceInfoMap.get(key);
-        return serviceInfo == null ? null : serviceInfo.clone();
+        return serviceInfoMap.get(key);
     }
     
     /**

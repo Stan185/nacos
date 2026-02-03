@@ -32,6 +32,7 @@ import com.alibaba.nacos.plugin.auth.constant.ActionTypes;
 import com.alibaba.nacos.plugin.auth.constant.ApiType;
 import com.alibaba.nacos.plugin.auth.constant.Constants;
 import com.alibaba.nacos.plugin.auth.constant.SignType;
+import com.alibaba.nacos.plugin.auth.impl.constant.AuthConstants;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,7 +66,7 @@ public class ConsoleNamespaceController {
      * @return namespace list
      */
     @GetMapping("/list")
-    @Secured(resource = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX + "namespaces",
+    @Secured(resource = AuthConstants.CONSOLE_RESOURCE_NAME_PREFIX + "namespaces",
             action = ActionTypes.READ, signType = SignType.CONSOLE, apiType = ApiType.CONSOLE_API, tags = Constants.Tag.ONLY_IDENTITY)
     public Result<List<Namespace>> getNamespaceList() throws NacosException {
         return Result.success(namespaceProxy.getNamespaceList());
@@ -78,7 +79,7 @@ public class ConsoleNamespaceController {
      * @return namespace all info
      */
     @GetMapping()
-    @Secured(resource = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX
+    @Secured(resource = AuthConstants.CONSOLE_RESOURCE_NAME_PREFIX
             + "namespaces", action = ActionTypes.READ, signType = SignType.CONSOLE, apiType = ApiType.CONSOLE_API)
     public Result<Namespace> getNamespaceDetail(@RequestParam("namespaceId") String namespaceId) throws NacosException {
         return Result.success(namespaceProxy.getNamespaceDetail(namespaceId));
@@ -91,7 +92,7 @@ public class ConsoleNamespaceController {
      * @return whether create ok
      */
     @PostMapping
-    @Secured(resource = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX
+    @Secured(resource = AuthConstants.CONSOLE_RESOURCE_NAME_PREFIX
             + "namespaces", action = ActionTypes.WRITE, signType = SignType.CONSOLE, apiType = ApiType.CONSOLE_API)
     public Result<Boolean> createNamespace(CreateNamespaceForm namespaceForm) throws NacosException {
         namespaceForm.validate();
@@ -108,7 +109,7 @@ public class ConsoleNamespaceController {
      * @return whether edit ok
      */
     @PutMapping
-    @Secured(resource = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX
+    @Secured(resource = AuthConstants.CONSOLE_RESOURCE_NAME_PREFIX
             + "namespaces", action = ActionTypes.WRITE, signType = SignType.CONSOLE, apiType = ApiType.CONSOLE_API)
     public Result<Boolean> updateNamespace(NamespaceForm namespaceForm) throws NacosException {
         namespaceForm.validate();
@@ -122,7 +123,7 @@ public class ConsoleNamespaceController {
      * @return whether delete ok
      */
     @DeleteMapping
-    @Secured(resource = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX
+    @Secured(resource = AuthConstants.CONSOLE_RESOURCE_NAME_PREFIX
             + "namespaces", action = ActionTypes.WRITE, signType = SignType.CONSOLE, apiType = ApiType.CONSOLE_API)
     public Result<Boolean> deleteNamespace(@RequestParam("namespaceId") String namespaceId) throws NacosException {
         return Result.success(namespaceProxy.deleteNamespace(namespaceId));
@@ -135,7 +136,7 @@ public class ConsoleNamespaceController {
      * @return true if exist, otherwise false
      */
     @GetMapping("/exist")
-    @Secured(resource = Constants.Resource.CONSOLE_RESOURCE_NAME_PREFIX + "namespaces",
+    @Secured(resource = AuthConstants.CONSOLE_RESOURCE_NAME_PREFIX + "namespaces",
             action = ActionTypes.READ, signType = SignType.CONSOLE, apiType = ApiType.CONSOLE_API, tags = Constants.Tag.ONLY_IDENTITY)
     public Result<Boolean> checkNamespaceIdExist(@RequestParam("customNamespaceId") String namespaceId)
             throws NacosException {

@@ -18,6 +18,7 @@ package com.alibaba.nacos.naming.push.v2.executor;
 
 import com.alibaba.nacos.api.naming.remote.request.AbstractFuzzyWatchNotifyRequest;
 import com.alibaba.nacos.api.remote.PushCallBack;
+import com.alibaba.nacos.naming.core.v2.client.impl.IpPortBasedClient;
 import com.alibaba.nacos.naming.pojo.Subscriber;
 import com.alibaba.nacos.naming.push.v2.PushDataWrapper;
 import com.alibaba.nacos.naming.push.v2.task.NamingPushCallback;
@@ -36,8 +37,11 @@ public class PushExecutorDelegate implements PushExecutor {
     
     private final PushExecutorRpcImpl rpcPushExecuteService;
     
-    public PushExecutorDelegate(PushExecutorRpcImpl rpcPushExecuteService) {
+    private final PushExecutorUdpImpl udpPushExecuteService;
+    
+    public PushExecutorDelegate(PushExecutorRpcImpl rpcPushExecuteService, PushExecutorUdpImpl udpPushExecuteService) {
         this.rpcPushExecuteService = rpcPushExecuteService;
+        this.udpPushExecuteService = udpPushExecuteService;
     }
     
     @Override
@@ -65,6 +69,6 @@ public class PushExecutorDelegate implements PushExecutor {
             return result.get();
         }
         // use nacos default push executor
-        return rpcPushExecuteService;
+        return clientId.contains(IpPortBasedClient.ID_DELIMITER) ? udpPushExecuteService : rpcPushExecuteService;
     }
 }

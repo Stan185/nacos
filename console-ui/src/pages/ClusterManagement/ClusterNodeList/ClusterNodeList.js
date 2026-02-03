@@ -96,7 +96,7 @@ class ClusterNodeList extends React.Component {
         this.setState({
           dataSource: [],
           total: 0,
-          currentPage: 1,
+          currentPage: 0,
         }),
       complete: () => this.closeLoading(),
     });
